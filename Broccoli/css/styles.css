@@ -1,0 +1,23 @@
+/***********ID Selectors********/
+.broccoli1{
+  background-color: green
+}
+
+.broccoli2{
+  background-color: red
+}
+
+#heading{
+  color: blue
+}
+h1{
+  color: red;
+}
+
+img{
+  background-color: red;
+}
+
+img:hover{
+  background-color: gold
+}
