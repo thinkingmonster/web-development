@@ -5,14 +5,13 @@ import time
 import urllib.request
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+counter = 0
 while True:
     area_pin = 560076
-    counter = 0
     # The mail addresses and password
-    sender_address = '*******@gmail.com'
-    sender_pass = '*****'
-    receiver_address = '********@gmail.com'
+    sender_address = '**********@gmail.com'
+    sender_pass = '**********'
+    receiver_address = '**********@gmail.com'
 
     today = datetime.datetime.today().strftime('%d-%m-%Y')
     base_url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='
@@ -64,7 +63,7 @@ while True:
     final_message = ''''''
     for data in available_centers:
         subject = 'Vaccination found'
-        message = '''Center Details: \n\n Center_name: {} \n age_limit: {} \n Capacity: {}\n\n'''.format(data['name'],
+        message = '''\nCenter Details: \n\n Center_name: {} \n age_limit: {} \n Capacity: {}\n\n'''.format(data['name'],
                                                                                                          data[
                                                                                                              'min_age_limit'],
                                                                                                          data[
@@ -74,5 +73,5 @@ while True:
     if len(available_centers) > 0:
         send_email(subject, final_message)
     counter += 1
-    print(counter)
+    print('\n-----------------------------\n{}: Checked on {}: {}\n-----------------------------'.format(counter,today,final_message))
     time.sleep(1800)
